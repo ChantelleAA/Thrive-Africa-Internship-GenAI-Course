@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Task Manager - Sample Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ AI Task Manager</h1>
+            <p>Manage your tasks with AI assistance</p>
+        </header>
+
+        <div class="main-content">
+            <!-- AI Suggestion Section -->
+            <div class="ai-section">
+                <h2>💡 AI Task Suggestions</h2>
+                <button class="btn btn-primary" onclick="getAISuggestions()">
+                    Get AI-Powered Task Ideas
+                </button>
+                <div id="aiSuggestions" class="suggestions"></div>
+            </div>
+
+            <!-- Add Task Section -->
+            <div class="add-task-section">
+                <h2>➕ Add New Task</h2>
+                <form id="taskForm" onsubmit="addTask(event)">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        placeholder="What needs to be done?" 
+                        required
+                    >
+                    <select id="prioritySelect">
+                        <option value="low">Low Priority</option>
+                        <option value="medium" selected>Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Add Task</button>
+                </form>
+            </div>
+
+            <!-- Tasks List -->
+            <div class="tasks-section">
+                <h2>📋 My Tasks</h2>
+                <div class="filter-buttons">
+                    <button class="btn-filter active" onclick="filterTasks('all')">All</button>
+                    <button class="btn-filter" onclick="filterTasks('active')">Active</button>
+                    <button class="btn-filter" onclick="filterTasks('completed')">Completed</button>
+                </div>
+                <ul id="taskList" class="task-list"></ul>
+                <div class="task-stats">
+                    <span id="taskCount">0 tasks</span>
+                    <button class="btn btn-sm" onclick="clearCompleted()">Clear Completed</button>
+                </div>
+            </div>
+
+            <!-- Integration Status -->
+            <div class="integration-section">
+                <h3>🔗 Integrations</h3>
+                <div class="integration-status">
+                    <div class="status-item">
+                        <span>Zapier</span>
+                        <span class="status" id="zapierStatus">●</span>
+                    </div>
+                    <div class="status-item">
+                        <span>Google Sheets</span>
+                        <span class="status" id="sheetsStatus">●</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ using GenAI Course concepts</p>
+            <p>
+                <a href="https://github.com/your-repo">GitHub</a> | 
+                <a href="https://vercel.com">Deployed on Vercel</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
